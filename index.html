@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Reebonz Cattery</title>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display&family=Open+Sans&display=swap" rel="stylesheet">
+  <!-- Lightbox gallery CSS -->
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/lightbox2/2.11.4/css/lightbox.min.css" rel="stylesheet"/>
+  <style>
+    * {box-sizing: border-box;}
+    body{
+      font-family:'Open Sans',sans-serif;margin:0;padding:0;background:#fff8f3;color:#333;
+    }
+    header{
+      background:#d8b4a0;color:#fff;padding:1.5rem;text-align:center;font-family:'Playfair Display',serif;
+    }
+    nav{
+      background:#f4e2d8;display:flex;flex-wrap:wrap;justify-content:center;gap:1rem;padding:1rem;
+    }
+    nav a{
+      text-decoration:none;color:#333;font-weight:bold;
+    }
+    section{padding:2rem;max-width:1100px;margin:auto;}
+    h2{font-family:'Playfair Display',serif;margin-bottom:1rem;color:#4b2e2e;}
+    /* KITTEN CARDS */
+    .kitten-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(250px,1fr));gap:1.5rem;}
+    .kitten-card{background:#fff;border-radius:8px;box-shadow:0 0 10px rgba(0,0,0,.1);overflow:hidden;text-align:center;padding:1rem;}
+    .kitten-card img{max-width:100%;height:auto;border-radius:6px;}
+    /* GALLERY */
+    .gallery-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:10px;}
+    .gallery-grid img{width:100%;height:auto;border-radius:4px;}
+    /* CONTACT */
+    .contact-form{display:flex;flex-direction:column;gap:1rem;max-width:500px;margin:auto;}
+    .contact-form input,.contact-form textarea{padding:.75rem;font-size:1rem;border:1px solid #ccc;border-radius:6px;}
+    .contact-form button{background:#d8b4a0;color:#fff;border:none;padding:.75rem;font-size:1rem;border-radius:6px;cursor:pointer;}
+    .status-msg{font-size:.9rem;color:#4b2e2e;text-align:center;}
+    footer{background:#d8b4a0;color:#fff;text-align:center;padding:1rem;margin-top:2rem;}
+  </style>
+</head>
+<body>
+  <header>
+    <h1>Reebonz Cattery</h1>
+    <p>Home of British Shorthair & Cornish Rex Kittens</p>
+  </header>
+  <nav>
+    <a href="#home">Home</a>
+    <a href="#available">Available Kittens</a>
+    <a href="#gallery">Gallery</a>
+    <a href="#our-cats">Our Cats</a>
+    <a href="#awards">Awards & Events</a>
+    <a href="#testimonials">Testimonials</a>
+    <a href="#about">About</a>
+    <a href="#contact">Contact</a>
+  </nav>
+
+  <!-- HOME -->
+  <section id="home">
+    <h2>Welcome to Reebonz Cattery</h2>
+    <p>We are a small, family‑run cattery specializing in British Shorthair and Cornish Rex kittens. All our kittens are raised in a loving environment, with care and dedication to breed standards.</p>
+  </section>
+
+  <!-- AVAILABLE KITTENS -->
+  <section id="available">
+    <h2>Available Kittens</h2>
+    <div class="kitten-grid">
+      <!-- Repeat kitten-card blocks as needed -->
+      <div class="kitten-card">
+        <a href="images/kitten1-large.jpg" data-lightbox="available" data-title="Blue British Shorthair – Available">
+          <img src="images/kitten1-thumb.jpg" alt="Blue British Shorthair kitten" />
+        </a>
+        <h3>Blue British Shorthair</h3>
+        <p>Status: <strong>Available</strong></p>
+      </div>
+      <div class="kitten-card">
+        <a href="images/kitten2-large.jpg" data-lightbox="available" data-title="Cream Cornish Rex – Available">
+          <img src="images/kitten2-thumb.jpg" alt="Cream Cornish Rex kitten" />
+        </a>
+        <h3>Cream Cornish Rex</h3>
+        <p>Status: <strong>Available</strong></p>
+      </div>
+    </div>
+  </section>
+
+  <!-- IMAGE GALLERY -->
+  <section id="gallery">
+    <h2>Gallery</h2>
+    <div class="gallery-grid">
+      <!-- Each anchor opens the full‑size image in Lightbox -->
+      <a href="images/gallery1-large.jpg" data-lightbox="cattery-gallery" data-title="Playtime in the garden"><img src="images/gallery1-thumb.jpg" alt="Gallery Image 1"/></a>
+      <a href="images/gallery2-large.jpg" data-lightbox="cattery-gallery" data-title="Kitten nap time"><img src="images/gallery2-thumb.jpg" alt="Gallery Image 2"/></a>
+      <a href="images/gallery3-large.jpg" data-lightbox="cattery-gallery" data-title="Mom & kittens"><img src="images/gallery3-thumb.jpg" alt="Gallery Image 3"/></a>
+      <a href="images/gallery4-large.jpg" data-lightbox="cattery-gallery" data-title="Cornish Rex pose"><img src="images/gallery4-thumb.jpg" alt="Gallery Image 4"/></a>
+    </div>
+  </section>
+
+  <!-- OUR CATS -->
+  <section id="our-cats">
+    <h2>Our Cats</h2>
+    <p>Meet the loving mothers and beautiful past kittens who have been part of our home.</p>
+  </section>
+
+  <!-- AWARDS & EVENTS -->
+  <section id="awards">
+    <h2>Awards & Events</h2>
+    <p>We proudly showcase our participation in events and the awards our cats have earned.</p>
+  </section>
+
+  <!-- TESTIMONIALS -->
+  <section id="testimonials">
+    <h2>Testimonials</h2>
+    <p>Read what our happy customers have to say about their kittens from Reebonz Cattery.</p>
+  </section>
+
+  <!-- ABOUT -->
+  <section id="about">
+    <h2>About Us</h2>
+    <p>Located in a cozy home setting, our cattery is built with love and a passion for our feline companions. We keep a small number of cats to ensure each one receives the best care and attention.</p>
+  </section>
+
+  <!-- CONTACT WITH FORMSPREE INTEGRATION -->
+  <section id="contact">
+    <h2>Contact Us</h2>
+    <form class="contact-form" action="https://formspree.io/f/yourFormID" method="POST" id="contact-form">
+      <input type="text" name="name" placeholder="Your Name" required>
+      <input type="email" name="email" placeholder="Your Email" required>
+      <textarea name="message" rows="5" placeholder="Your Message" required></textarea>
+      <!-- honey‑pot field to prevent spam -->
+      <input type="text" name="_gotcha" style="display:none">
+      <button type="submit">Send Message</button>
+      <p class="status-msg" id="form-status"></p>
+    </form>
+
+    <br>
+    <p>Email: <a href="mailto:reebonzcattery@example.com">reebonzcattery@example.com</a></p>
+    <p>Facebook: <a href="https://facebook.com/yourpage" target="_blank" rel="noopener">Reebonz Cattery</a></p>
+    <br>
+    <iframe src="https://www.facebook.com/plugins/page.php?href=https%3A%2F%2Fwww.facebook.com%2Fyourpage&tabs=timeline&width=500&height=300&small_header=false&adapt_container_width=true&hide_cover=false&show_facepile=true" width="500" height="300" scrolling="no" frameborder="0" allow="autoplay; clipboard-write; encrypted-media; picture-in-picture; web-share"></iframe>
+  </section>
+
+  <footer>
+    <p>&copy; 2025 Reebonz Cattery. All rights reserved.</p>
+  </footer>
+
+  <!-- Lightbox gallery JS -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/lightbox2/2.11.4/js/lightbox-plus-jquery.min.js"></script>
+
+  <!-- Contact form async submission -->
+  <script>
+    const form = document.getElementById('contact-form');
+    const statusMsg = document.getElementById('form-status');
+    form.addEventListener('submit', async (e) => {
+      e.preventDefault();
+      const data = new FormData(form);
+      try {
+        const res = await fetch(form.action, {
+          method: form.method,
+          body: data,
+          headers: { 'Accept': 'application/json' }
+        });
+        if (res.ok) {
+          statusMsg.textContent = 'Thanks for reaching out! We\'ll contact you shortly.';
+          form.reset();
+        } else {
+          const err = await res.json();
+          statusMsg.textContent = err.message || 'Oops! Something went wrong.';
+        }
+      } catch (error) {
+        statusMsg.textContent = 'Network error. Please try again later.';
+      }
+    });
+  </script>
+</body>
+</html>
