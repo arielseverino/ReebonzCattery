@@ -6,9 +6,24 @@
       background-color: #fdfdfd;
     }
 
-    header{
-      background:#d8b4a0;color:#fff;padding:1.5rem;text-align:center;font-family:'Playfair Display',serif;
+    header {
+      background: url('assets/images/background.jpg') no-repeat center center;
+      background-size: contain;
+      padding: 40px 10px;
+      position: relative;
+      height: 120px;
+      display: flex;
+      align-items: flex-start;
     }
+
+    .logo {
+	width: 150px;       /* wider than tall for oblong shape */
+	height: 150px;      /* adjust to your preference */
+	object-fit: cover;  /* ensure the image scales properly */
+	border-radius: 50%; /* this creates the oblong/oval effect */
+	margin-top:-30px;
+     }
+
     nav{
       background:#f4e2d8;display:flex;flex-wrap:wrap;justify-content:center;gap:1rem;padding:1rem;
     }
@@ -41,11 +56,6 @@
      padding: 40px;
      text-align: center;
     }
-
-    .logo {
-      max-width: 200px;
-      height: auto;
-      border-radius: 10px    /* Testimonial	 */
 
    /* Events and Awards */
    event-card {
