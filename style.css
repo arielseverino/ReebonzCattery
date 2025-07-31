@@ -87,11 +87,5 @@
 		  flex-direction: column;
 		  gap: 2rem; /* ⬅ Adds space between each event card */
 	  }
-
-    box-shadow: 0 4px 8px rgba(0,0,0,0.3);
-    }
-
-
-    
     
   </style>
