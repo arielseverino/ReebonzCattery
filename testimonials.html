@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Reebonz Cattery</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+
+
+<body>
+
+  <!-- Header with logo and background -->
+  <header>
+    <img src="assets/images/logo.jpg" alt="Reebonz Logo" class="logo" />
+  </header>
+  
+  <!-- Navigation menu -->
+  <nav>
+    <a href="index.html">Home</a>
+    <a href="available-kittens.html">Available Kittens</a>
+    <a href="gallery.html">Gallery</a>
+    <a href="our-cats.html">Our Cats</a>
+    <a href="awards-events.html">Awards and Events</a>
+    <a href="testimonials.html">Testimonial</a>
+    <a href="contact.html">Contact</a>
+  </nav>
+    
+  <!-- TESTIMONIALS -->
+  <section id="testimonial">
+    <h2>Testimonials</h2>
+    <div class="testimonial-grid" id="testimonialGrid">
+	
+		<!-- Lightbox script -->
+		<script src="https://cdnjs.cloudflare.com/ajax/libs/lightbox2/2.11.4/js/lightbox.min.js"></script>
+
+		<!-- Sheet.best script -->
+		<script>
+			fetch("https://api.sheetbest.com/sheets/5831cb94-11ed-48b1-a76e-42d756531704/tabs/testimonials")
+      .			then(response => response.json())
+      .			then(data => {
+				const grid = document.getElementById("testimonialGrid");
+
+				data.forEach(testimonial => {
+					const imgSrc1 = `assets/testimonials/${testimonial.Image1}`;
+					const imgSrc2 = `assets/testimonials/${testimonial.Image2}`;
+					const imgSrc3 = `assets/testimonials/${testimonial.Image3}`;
+					const imgSrc4 = `assets/testimonials/${testimonial.Image4}`;
+					const imgSrc5 = `assets/testimonials/${testimonial.Image5}`;
+																				
+					const card = document.createElement("div");
+					card.className = "testimonial-card";
+					
+					const images = [imgSrc1, imgSrc2, imgSrc3, imgSrc4, imgSrc5]
+    .					filter(src => src && !src.endsWith("/")); // Remove empty or invalid URLs
+
+					card.innerHTML = `
+						<h3>${testimonial.Customer}</h3>
+						<ul class="testimonial-details">
+						    <li><strong>Date:</strong> ${testimonial.Date}</li>
+							<li>${testimonial.Remark}</li>
+						</ul>
+						 <div class="testimonial-gallery">
+							${images.map(src => 
+							`<a href="${src}" data-lightbox="available"><img src="${src}" alt="${testimonial.Customer}"></a>`
+							).join("")}
+						</div>
+						`;
+						grid.appendChild(card);
+					});
+				});
+		</script>
+      
+    </div>
+  </section>
+  
+  <!-- Footer -->
+  <footer>
+    &copy; 2025 Reebonz Cattery. All rights reserved.
+  </footer>
+
+</body>
+</html>
