@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Reebonz Cattery</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+
+
+<body>
+
+  <!-- Header with logo and background -->
+  <header>
+    <img src="assets/images/logo.jpg" alt="Reebonz Logo" class="logo" />
+  </header>
+  
+  <!-- Navigation menu -->
+  <nav>
+    <a href="index.html">Home</a>
+    <a href="available-kittens.html">Available Kittens</a>
+    <a href="gallery.html">Gallery</a>
+    <a href="our-cats.html">Our Cats</a>
+    <a href="awards-events.html">Awards and Events</a>
+    <a href="testimonial.html">Testimonial</a>
+    <a href="contact.html">Contact</a>
+  </nav>
+    
+  <!-- AWARDS & EVENTS -->
+  <section id="event-award">
+    <h2>Awards & Events</h2>
+    <div class="event-grid" id="eventGrid">
+	
+		<!-- Lightbox script -->
+		<script src="https://cdnjs.cloudflare.com/ajax/libs/lightbox2/2.11.4/js/lightbox.min.js"></script>
+
+		<!-- Sheet.best script -->
+		<script>
+			fetch("https://api.sheetbest.com/sheets/5831cb94-11ed-48b1-a76e-42d756531704/tabs/awards-events")
+      .			then(response => response.json())
+      .			then(data => {
+				const grid = document.getElementById("eventGrid");
+
+				data.forEach(event => {
+					const imgSrc1 = `assets/awards-events/${event.Image1}`;
+					const imgSrc2 = `assets/awards-events/${event.Image2}`;
+					const imgSrc3 = `assets/awards-events/${event.Image3}`;
+					const imgSrc4 = `assets/awards-events/${event.Image4}`;
+					const imgSrc5 = `assets/awards-events/${event.Image5}`;
+					const imgSrc6 = `assets/awards-events/${event.Image6}`;
+					const imgSrc7 = `assets/awards-events/${event.Image7}`;
+				
+					
+					const imgUrlSrc1 = `assets/awards-events/${event.VideoImg1}`;
+					const FBUrl1     =  event.Video1;
+					const imgUrlSrc2 = `assets/awards-events/${event.VideoImg2}`;
+					const FBUrl2     =  event.Video2; 
+					const imgUrlSrc3 = `assets/awards-events/${event.VideoImg3}`;
+					const FBUrl3     =  event.Video3; 
+					const imgUrlSrc4 = `assets/awards-events/${event.VideoImg4}`;
+					const FBUrl4     =  event.Video4; 
+					const imgUrlSrc5 = `assets/awards-events/${event.VideoImg5}`;
+					const FBUrl5     =  event.Video5; 
+										
+															
+					const card = document.createElement("div");
+					card.className = "event-card";
+					
+					const images = [imgSrc1, imgSrc2, imgSrc3, imgSrc4, imgSrc5, imgSrc6, imgSrc7]
+    .					filter(src => src && !src.endsWith("/")); // Remove empty or invalid URLs
+
+					card.innerHTML = `
+						<h3>${event.Events}</h3>
+						<ul class="event-details">
+						    <li><strong>Date:</strong> ${event.Date}</li>
+							<li><strong>Location:</strong> ${event.Location}</li>
+							<li>${event.Remark}</li>
+							<li><strong>Awards-1:</strong> ${event.Awards1}</li>
+							<li><strong>Awards-2:</strong> ${event.Awards2} </li>
+						</ul>
+						 <div class="event-gallery">
+							${images.map(src => 
+							`<a href="${src}" data-lightbox="available"><img src="${src}" alt="${event.Events}"></a>`
+							).join("")}
+						
+							${[FBUrl1, FBUrl2, FBUrl3, FBUrl4, FBUrl5].map((url, i) => {
+							const videoImg = [`${imgUrlSrc1}`, `${imgUrlSrc2}`, `${imgUrlSrc3}`, `${imgUrlSrc4}`, `${imgUrlSrc5}`][i];
+							return url ? `
+							<a href="${url}" target="_blank" rel="noopener noreferrer" class="video-thumb">
+								<img src="${videoImg}" alt="${event.Events}">
+								<span class="play-icon">&#9658;</span>
+							</a>` : "";
+							}).join("")}
+    					</div>
+						`;
+						grid.appendChild(card);
+					});
+				});
+		</script>
+      
+    </div>
+  </section>
+  
+  <!-- Footer -->
+  <footer>
+    &copy; 2025 Reebonz Cattery. All rights reserved.
+  </footer>
+
+</body>
+</html>
