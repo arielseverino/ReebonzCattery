@@ -1,8 +1,11 @@
   <style>
     * {box-sizing: border-box;}
-    body{
-      font-family:'Open Sans',sans-serif;margin:0;padding:0;background:#fff8f3;color:#333;
+    body {
+      margin: 0;
+      font-family: Arial, sans-serif;
+      background-color: #fdfdfd;
     }
+
     header{
       background:#d8b4a0;color:#fff;padding:1.5rem;text-align:center;font-family:'Playfair Display',serif;
     }
