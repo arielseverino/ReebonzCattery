@@ -1,5 +1,7 @@
   <style>
+
     * {box-sizing: border-box;}
+
     body {
       margin: 0;
       font-family: Arial, sans-serif;
@@ -77,14 +79,6 @@
     .contact-form button{background:#d8b4a0;color:#fff;border:none;padding:.75rem;font-size:1rem;border-radius:6px;cursor:pointer;}
     .status-msg{font-size:.9rem;color:#4b2e2e;text-align:center;}
     footer{background:#d8b4a0;color:#fff;text-align:center;padding:1rem;margin-top:2rem;}
-
-    .header {
-     background-image: url('assets/image/background.jpg');
-     background-size: cover;
-     background-position: center;
-     padding: 40px;
-     text-align: center;
-    }
 
    /* Events and Awards */
    event-card {
