@@ -37,13 +37,13 @@
 
 		<!-- Sheet.best script -->
 		<script>
-			fetch("https://api.sheetbest.com/sheets/5831cb94-11ed-48b1-a76e-42d756531704/tabs/available-kittens")
+			fetch("https://api.sheetbest.com/sheets/5831cb94-11ed-48b1-a76e-42d756531704/tabs/available")
       .			then(response => response.json())
       .			then(data => {
 				const grid = document.getElementById("kittenGrid");
 
 				data.forEach(kitten => {
-					const imgSrc = `assets/available/${kitten.Image}`;
+					const imgSrc = `assets/available-kittens/${kitten.Image}`;
 
 					const card = document.createElement("div");
 					card.className = "kitten-card";
