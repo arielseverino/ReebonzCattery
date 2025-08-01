@@ -249,7 +249,33 @@
 		  gap: 2rem; /* ⬅ Adds space between each event card */
 	  }
 
-   
+		 .contact-form {
+      display: flex;
+      flex-direction: column;
+      gap: 1rem;
+      max-width: 500px;
+      margin: auto;
+    }
+    .contact-form input,
+    .contact-form textarea {
+      padding: 0.75rem;
+      font-size: 1rem;
+      border: 1px solid #ccc;
+      border-radius: 6px;
+    }
+    .contact-form button {
+      background-color: #d8b4a0;
+      color: white;
+      border: none;
+      padding: 0.75rem;
+      font-size: 1rem;
+      border-radius: 6px;
+      cursor: pointer;
+    }
+    iframe {
+      max-width: 100%;
+      border: none;
+    }   
 
     
   </style>
