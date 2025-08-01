@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Reebonz Cattery</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+
+
+<body>
+
+  <!-- Header with logo and background -->
+  <header>
+    <img src="assets/images/logo.jpg" alt="Reebonz Logo" class="logo" />
+  </header>
+  
+  <!-- Navigation menu -->
+  <nav>
+    <a href="index.html">Home</a>
+    <a href="available-kittens.html">Available Kittens</a>
+    <a href="gallery.html">Gallery</a>
+    <a href="#our-cats">Our Cats</a>
+    <a href="awards-events.html">Awards and Events</a>
+    <a href="testimonials.html">Testimonial</a>
+    <a href="#contact">Contact</a>
+  </nav>
+    
+  <!-- AVAILABLE KITTENS -->
+  <section id="available">
+    <h2>Available Kittens</h2>
+    <div class="kitten-grid" id="kittenGrid">
+	
+		<!-- Lightbox script -->
+		<script src="https://cdnjs.cloudflare.com/ajax/libs/lightbox2/2.11.4/js/lightbox.min.js"></script>
+
+		<!-- Sheet.best script -->
+		<script>
+			fetch("https://api.sheetbest.com/sheets/5831cb94-11ed-48b1-a76e-42d756531704/tabs/available")
+      .			then(response => response.json())
+      .			then(data => {
+				const grid = document.getElementById("kittenGrid");
+
+				data.forEach(kitten => {
+					const imgSrc = `assets/available/${kitten.Image}`;
+
+					const card = document.createElement("div");
+					card.className = "kitten-card";
+					card.innerHTML = `
+						<a href="${imgSrc}" data-lightbox="available" data-title="${kitten.Name}">
+							<img src="${imgSrc}" alt="${kitten.Name}">
+						</a>
+						<h3>${kitten.Name}</h3>
+						<ul class="kitten-details">
+						    <li><strong>Color:</strong> ${kitten.Color}</li>
+							<li><strong>DOB:</strong> ${kitten.DOB}</li>
+							<li><strong>Gender:</strong> ${kitten.Gender}</li>
+							<li><strong>Age:</strong> ${kitten.Age}</li>
+							<li>Complete Vacine ${kitten.Vacinated} </li>
+							<li>Complete Deworming ${kitten.Deworming}</li>
+							<li>With Pedigree Papers ${kitten.Pedigree}</li>
+							<li><strong>Status:</strong> ${kitten.Status}</li>
+						</ul>
+						`;
+						grid.appendChild(card);
+					});
+				});
+		</script>
+      
+    </div>
+  </section>
+  
+  <!-- Footer -->
+  <footer>
+    &copy; 2025 Reebonz Cattery. All rights reserved.
+  </footer>
+
+</body>
+</html>
