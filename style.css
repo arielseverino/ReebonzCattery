@@ -552,7 +552,11 @@ footer {
   &copy; 2025 Furry Cat Kittens. All Rights Reserved.
 </p>
 
+.footer-copy { display: flex; align-items: center; justify-content: center; gap: 8px; }
+.kitten-icon { width: 20px; height: 20px; }
+
 
 </style>
+
 
 
