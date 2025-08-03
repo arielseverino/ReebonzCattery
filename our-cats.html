@@ -30,18 +30,40 @@
     <div id="cats-container" class="cats-grid"></div>
   </section>
 
+  <footer>
+    <p>&copy; 2025 Reebonz Cattery. All rights reserved.</p>
+  </footer>
 
-i {
-    font-size: 30px;
-    color: white;
-    margin: 0 10px;
-    transition: transform 0.2s ease;
-}
-i:hover {
-    transform: scale(1.2);
-    color: #f2f2f2;
-}
+  <script>
+    const apiUrl = "https://api.sheetbest.com/sheets/5831cb94-11ed-48b1-a76e-42d756531704/tabs/our-cats";
+    const container = document.getElementById("cats-container");
 
+    fetch(apiUrl)
+      .then(response => response.json())
+      .then(cats => {
+        container.innerHTML = "";
+        cats.forEach(cat => {
+          const imgSrc = `assets/our-cats/${cat.Image}`;
+          const card = document.createElement("div");
+          card.classList.add("cat-card");
+
+          card.innerHTML = `
+            <a href="cat-history.html?name=${encodeURIComponent(cat.Name)}">
+              <img src="${imgSrc}" alt="${cat.Name}" onerror="this.onerror=null; this.src='assets/images/no-image.jpg';">
+            </a>
+            <h3>${cat.Name}</h3>
+            <p><strong>Category:</strong> ${cat.Category}</p>
+            <p><strong>Type:</strong> ${cat.Type}</p>
+            <p><strong>DOB:</strong> ${cat.DateofBirth}</p>
+            <p><strong>Parents:</strong> ${cat.Parents}</p>
+            <p><strong>Sex:</strong> ${cat.Sex}</p>
+            <p>${cat.Remark}</p>
+          `;
+          container.appendChild(card);
+        });
+      })
+      .catch(error => console.error("Error fetching cat data:", error));
+  </script>
 
 <footer class="footer">
     <div class="footer-container">
@@ -85,10 +107,9 @@ i:hover {
         <img src="assets/icons/kitten.png" alt="Kitten Icon" class="kitten-icon"> 
         &copy; 2025 Furry Cat Kittens. All Rights Reserved.
     </p>
-</footer>
+</footer>	
 
-  
 </body>
+
+
 </html>
-
-
