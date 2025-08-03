@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <!-- SEO Meta Tags -->
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="description" content="Contact Reebonz Cattery for kitten inquiries, adoption details, or general questions. Get in touch today!">
+    <meta name="keywords" content="contact Reebonz Cattery, kitten adoption Philippines, cat breeder contact">
+    <meta name="robots" content="index, follow">
+    <meta name="author" content="Ariel Severino">
+
+    <!-- Open Graph -->
+    <meta property="og:title" content="Contact Reebonz Cattery – Get in Touch Today" />
+    <meta property="og:description" content="Reach out to Reebonz Cattery for inquiries about kittens, adoption, or our breeding program." />
+    <meta property="og:image" content="https://arielseverino.github.io/ReebonzCattery/assets/images/background.jpg" />
+    <meta property="og:url" content="https://arielseverino.github.io/ReebonzCattery/contact.html" />
+    <meta property="og:type" content="website" />
+
+    <title>Contact Us – Reebonz Cattery</title>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display&family=Open+Sans&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<header>
+    <img src="assets/images/logo.jpg" alt="Reebonz Cattery Logo" class="logo">
+</header>
+
+<nav>
+    <a href="index.html">Home</a>
+    <a href="available-kittens.html">Available Kittens</a>
+    <a href="gallery.html">Gallery</a>
+    <a href="our-cats.html">Our Cats</a>
+    <a href="awards-events.html">Awards & Events</a>
+    <a href="testimonials.html">Testimonials</a>
+    <a href="about.html">About</a>
+    <a href="contact.html" class="active">Contact</a>
+</nav>
+
+<main>
+
+<section id="contact">
+  <h2>Contact Us</h2>
+  <p class="contact-intro">
+    Have questions about our kittens or the adoption process? We'd love to hear from you!
+  </p>
+
+  <!-- Contact Form Card -->
+  <form id="contact-form" class="contact-form" action="https://formspree.io/f/your-form-id" method="POST">
+    <input type="text" name="name" placeholder="Your Name" required>
+    <input type="email" name="email" placeholder="Your Email" required>
+    <textarea name="message" rows="5" placeholder="Your Message" required></textarea>
+    <button type="submit">Send Message</button>
+  </form>
+  <p id="form-status" class="status-msg"></p>
+
+  <!-- Contact Info -->
+  <div class="contact-info">
+    <p>Email: <a href="mailto:reebonzcattery@example.com">reebonzcattery@example.com</a></p>
+    <p>Facebook: <a href="https://facebook.com/FurryCatKittens" target="_blank">Reebonz Cattery</a></p>
+  </div>
+
+  <!-- Facebook Iframe Card -->
+  <div class="contact-map">
+    <iframe 
+      src="https://www.facebook.com/plugins/page.php?href=https%3A%2F%2Fwww.facebook.com%2FFurryCatKittens&tabs=timeline&width=500&height=300&small_header=false&adapt_container_width=true&hide_cover=false&show_facepile=true"
+      scrolling="no"
+      frameborder="0"
+      allowfullscreen="true"
+      allow="autoplay; clipboard-write; encrypted-media; picture-in-picture; web-share">
+    </iframe>
+  </div>
+</section>
+
+<script>
+  const form = document.getElementById('contact-form');
+  const statusMsg = document.getElementById('form-status');
+
+  form.addEventListener('submit', async (e) => {
+    e.preventDefault();
+    const data = new FormData(form);
+    try {
+      const res = await fetch(form.action, {
+        method: form.method,
+        body: data,
+        headers: { 'Accept': 'application/json' }
+      });
+      if (res.ok) {
+        statusMsg.textContent = 'Thanks for reaching out! We\'ll contact you shortly.';
+        form.reset();
+      } else {
+        const err = await res.json();
+        statusMsg.textContent = err.message || 'Oops! Something went wrong.';
+      }
+    } catch (error) {
+      statusMsg.textContent = 'Network error. Please try again later.';
+    }
+  });
+</script>
+  
+  
+</section>
+
+<!-- Contact Form Script (Optional for Formspree async) -->
+<script>
+  const form = document.getElementById('contact-form');
+  const statusMsg = document.getElementById('form-status');
+
+  form.addEventListener('submit', async (e) => {
+    e.preventDefault();
+    const data = new FormData(form);
+    try {
+      const res = await fetch(form.action, {
+        method: form.method,
+        body: data,
+        headers: { 'Accept': 'application/json' }
+      });
+      if (res.ok) {
+        statusMsg.textContent = 'Thanks for reaching out! We\'ll contact you shortly.';
+        form.reset();
+      } else {
+        const err = await res.json();
+        statusMsg.textContent = err.message || 'Oops! Something went wrong.';
+      }
+    } catch (error) {
+      statusMsg.textContent = 'Network error. Please try again later.';
+    }
+  });
+</script>
+
+
+</main>
+
+<footer>
+    <p>&copy; 2025 Reebonz Cattery. All rights reserved.</p>
+</footer>
+
+<script>
+    const form = document.getElementById('contact-form');
+    const statusMsg = document.getElementById('form-status');
+    form.addEventListener('submit', async (e) => {
+        e.preventDefault();
+        const data = new FormData(form);
+        try {
+            const res = await fetch(form.action, {
+                method: form.method,
+                body: data,
+                headers: { 'Accept': 'application/json' }
+            });
+            if (res.ok) {
+                statusMsg.textContent = 'Thanks for reaching out! We\'ll contact you shortly.';
+                form.reset();
+            } else {
+                const err = await res.json();
+                statusMsg.textContent = err.message || 'Oops! Something went wrong.';
+            }
+        } catch (error) {
+            statusMsg.textContent = 'Network error. Please try again later.';
+        }
+    });
+</script>
+
+</body>
+</html>

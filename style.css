@@ -1,234 +1,404 @@
-  <style>
+<style>
 
-    * {box-sizing: border-box;}
+* {
+  box-sizing: border-box;
+}
 
-    body {
-      margin: 0;
-      font-family: Arial, sans-serif;
-      background-color: #fdfdfd;
-    }
+body {
+  margin: 0;
+  font-family: Arial, sans-serif;
+  background-color: #fdfdfd;
+}
 
-    header {
-      background: url('assets/images/background.jpg') no-repeat center center;
-      background-size: contain;
-      padding: 40px 10px;
-      position: relative;
-      height: 120px;
-      display: flex;
-      align-items: flex-start;
-    }
+header {
+  background: url('assets/images/background.jpg') no-repeat center center;
+  background-size: contain;
+  padding: 40px 10px;
+  position: relative;
+  height: 120px;
+  display: flex;
+  align-items: flex-start;
+}
 
-    .logo {
-	width: 150px;       /* wider than tall for oblong shape */
-	height: 150px;      /* adjust to your preference */
-	object-fit: cover;  /* ensure the image scales properly */
-	border-radius: 50%; /* this creates the oblong/oval effect */
-	margin-top:-30px;
-     }
+.logo {
+  width: 150px;
+  height: 150px;
+  object-fit: cover;
+  border-radius: 50%;
+  margin-top: -30px;
+}
 
-   nav {
-      background-color: #800000; /* maroon */
-      display: flex;
-      justify-content: center;
-      padding: 10px 0;
-    }
+nav {
+  background-color: #800000;
+  display: flex;
+  justify-content: center;
+  padding: 10px 0;
+}
 
-   nav a {
-      color: white;
-      text-decoration: none;
-      margin: 0 15px;
-      font-size: 18px;
-      font-weight: bold;
-      transition: color 0.3s;
-    }
+nav a {
+  color: white;
+  text-decoration: none;
+  margin: 0 15px;
+  font-size: 18px;
+  font-weight: bold;
+  transition: color 0.3s;
+}
 
-    nav a:hover {
-      color: #FFD700; /* gold/yellow highlight on hover for contrast */
-    }
+nav a:hover {
+  color: #FFD700;
+}
 
-   .content {
-      padding: 40px;
-      text-align: center;
-    }
+.content {
+  padding: 40px;
+  text-align: center;
+}
 
-    button {
-      background-color: #B22222; /* red */
-      color: white;
-      border: none;
-      padding: 10px 20px;
-      font-size: 16px;
-      cursor: pointer;
-    }
+button {
+  background-color: #B22222;
+  color: white;
+  border: none;
+  padding: 10px 20px;
+  font-size: 16px;
+  cursor: pointer;
+}
 
-    section{padding:2rem;max-width:1100px;margin:auto;}
+.video-thumb {
+  position: relative;
+  display: inline-block;
+}
 
-    h2{font-family:'Playfair Display',serif;margin-bottom:1rem;color:#4b2e2e;}
+.video-thumb .play-icon {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  font-size: 48px;
+  color: white;
+  background: rgba(0,0,0,0.6);
+  border-radius: 50%;
+  padding: 10px 15px;
+  pointer-events: none;
+}
 
-     /* KITTEN CARDS */
-    .kitten-grid{
-		 display:grid;
-	     grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
-		 gap:1.5rem;
-	 }
-    .kitten-card{ 
-	     background:#fff;
-	     border-radius:8px;
-		 box-shadow:0 0 10px rgba(0,0,0,.1);
-		 overflow:hidden;
-		 text-align:center;
-		 padding:1rem;
-	}
-		 
-    .kitten-card img{
-	     width:100%;
-		 height:auto;
-		 object-fit:cover;
-		 border-radius:6px;
-	}
-  
-	.kitten-details {
-		list-style: none;
-		padding: 0;
-		margin: 1rem 0 0;
-		text-align: left;
-		font-size: 0.95rem;
-		color: #444;
-	}
+section {
+  padding: 2rem;
+  max-width: 1100px;
+  margin: auto;
+}
 
-	.kitten-details li {
-		margin-bottom: 0.3rem;
-	}.
-		
-     /* GALLERY CARDS */
-    .gallery-grid{
-		 display:grid;
-	     grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
-		 gap:1.5rem;
-	 }
-    .gallery-card{ 
-	     background:#fff;
-	     border-radius:8px;
-		 box-shadow:0 0 10px rgba(0,0,0,.1);
-		 overflow:hidden;
-		 text-align:center;
-		 padding:1rem;
-	}
-		 
-    .gallery-card img{
-	     width:100%;
-		 height:auto;
-		 object-fit:cover;
-		 border-radius:6px;
-	}
-  
-	.gallery-details {
-		list-style: none;
-		padding: 0;
-		margin: 1rem 0 0;
-		text-align: left;
-		font-size: 0.95rem;
-		color: #444;
-	}
+h2 {
+  font-family: 'Playfair Display', serif;
+  margin-bottom: 1rem;
+  color: #4b2e2e;
+}
 
-	.gallery-details li {
-		margin-bottom: 0.3rem;
-	}.
+/* ============================
+   AVAILABLE KITTENS
+============================ */
+.kitten-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1.5rem;
+}
+.kitten-card {
+  background: #fff;
+  border-radius: 8px;
+  box-shadow: 0 0 10px rgba(0,0,0,.1);
+  overflow: hidden;
+  text-align: center;
+  padding: 1rem;
+}
+.kitten-card img {
+  width: 100%;
+  height: 500px;
+  object-fit: cover;
+  border-radius: 6px;
+}
+.kitten-details {
+  list-style: none;
+  padding: 0;
+  margin: 1rem 0 0;
+  text-align: left;
+  font-size: 0.95rem;
+  color: #444;
+}
+.kitten-details li {
+  margin-bottom: 0.3rem;
+}
+
+/* ============================
+   GALLERY
+============================ */
+.gallery-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1.5rem;
+}
+.gallery-card {
+  background: #fff;
+  border-radius: 8px;
+  box-shadow: 0 0 10px rgba(0,0,0,.1);
+  overflow: hidden;
+  text-align: center;
+  padding: 1rem;
+}
+.gallery-card img {
+  width: 100%;
+  height: 500px;
+  object-fit: cover;
+  border-radius: 6px;
+}
+.gallery-details {
+  list-style: none;
+  padding: 0;
+  margin: 1rem 0 0;
+}
+.gallery-details li {
+  margin-bottom: 0.3rem;
+}
+
+/* ============================
+   OUR CATS
+============================ */
+.cats-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1.5rem;
+  padding: 1rem;
+  max-width: 1200px;
+  margin: auto;
+}
+.cat-card {
+  background: #fff;
+  border: 1px solid #ddd;
+  border-radius: 10px;
+  text-align: center;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+  padding: 1rem;
+}
+.cat-card img {
+  display: block;
+  width: 100%;
+  height: 500px;
+  object-fit: cover;
+  border-radius: 10px;
+  margin-bottom: 0.5rem;
+}
+.cat-card h3 {
+  margin: 0.5rem 0;
+}
+.cat-card p {
+  margin: 0.25rem 0;
+  font-size: 0.9rem;
+  color: #555;
+}
+
+/* ============================
+   EVENTS & AWARDS
+============================ */
+.event-card {
+  background: #fff;
+  border-radius: 10px;
+  padding: 1.5rem;
+  margin-bottom: 2rem;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+}
+.event-card h3 {
+  margin-top: 0;
+  color: #4b2e2e;
+}
+.event-card .event-gallery {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 10px;
+  margin-top: 1rem;
+}
+.event-card .event-gallery a {
+  display: block;
+  width: 100%;
+  height: 500px;
+  overflow: hidden;
+  border-radius: 6px;
+}
+.event-card .event-gallery img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+.event-grid {
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+}
+
+/* ============================
+   TESTIMONIALS
+============================ */
+.testimonial-card {
+  background: #fff;
+  border-radius: 10px;
+  padding: 1.5rem;
+  margin-bottom: 2rem;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+}
+.testimonial-card h3 {
+  margin-top: 0;
+  color: #4b2e2e;
+}
+.testimonial-card .testimonial-gallery {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 10px;
+  margin-top: 1rem;
+}
+.testimonial-card .testimonial-gallery a {
+  display: block;
+  width: 100%;
+  height: 500px;
+  overflow: hidden;
+  border-radius: 6px;
+}
+.testimonial-card .testimonial-gallery img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+.testimonial-grid {
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+}
+
+/* ============================
+   CONTACT
+============================ */
+#contact {
+  text-align: center;
+  padding: 50px 20px;
+  background: #fdfdfd;
+}
+#contact h2 {
+  font-size: 2rem;
+  margin-bottom: 10px;
+  color: #4b2e2e;
+}
+.contact-intro {
+  font-size: 1.1rem;
+  color: #555;
+  margin-bottom: 25px;
+}
+.contact-form {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  max-width: 500px;
+  margin: 0 auto 20px;
+  background: #fff;
+  padding: 20px;
+  border-radius: 10px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+}
+.contact-form input,
+.contact-form textarea {
+  width: 100%;
+  padding: 0.75rem;
+  font-size: 1rem;
+  border: 1px solid #ccc;
+  border-radius: 6px;
+  box-sizing: border-box;
+}
+.contact-form button {
+  background-color: #d8b4a0;
+  color: white;
+  border: none;
+  padding: 0.75rem;
+  font-size: 1rem;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: background 0.3s ease;
+}
+.contact-form button:hover {
+  background-color: #b38b78;
+}
+.status-msg {
+  font-size: 0.9rem;
+  color: #4b2e2e;
+  text-align: center;
+  margin-top: 10px;
+}
+.contact-info {
+  margin: 20px 0;
+  font-size: 1rem;
+  color: #4b2e2e;
+}
+.contact-info a {
+  color: #800000;
+  text-decoration: none;
+}
+.contact-info a:hover {
+  text-decoration: underline;
+}
+.contact-map {
+  max-width: 500px;
+  margin: 20px auto;
+  background: #fff;
+  padding: 15px;
+  border-radius: 10px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+}
+.contact-map iframe {
+  width: 100%;
+  height: 300px;
+  border: none;
+  border-radius: 6px;
+  display: block;
+}
+#contact .btn-read-more {
+  display: inline-block;
+  padding: 10px 20px;
+  background: #800000;
+  color: #fff;
+  text-decoration: none;
+  font-size: 1rem;
+  border-radius: 6px;
+  transition: background 0.3s ease;
+}
+#contact .btn-read-more:hover {
+  background: #a00000;
+}
+
+/* ============================
+   FOOTER
+============================ */
+footer {
+  background: #d8b4a0;
+  color: #fff;
+  text-align: center;
+  padding: 1rem;
+  margin-top: 2rem;
+}
+
+/* ============================
+   RESPONSIVE FIXES
+============================ */
+@media (max-width: 1024px) {
+  .kitten-grid,
+  .gallery-grid,
+  .cats-grid,
+  .event-card .event-gallery,
+  .testimonial-card .testimonial-gallery {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+@media (max-width: 600px) {
+  .kitten-grid,
+  .gallery-grid,
+  .cats-grid,
+  .event-card .event-gallery,
+  .testimonial-card .testimonial-gallery {
+    grid-template-columns: 1fr;
+  }
+}
 
 
-
-
-    /* CONTACT */
-    .contact-form{display:flex;flex-direction:column;gap:1rem;max-width:500px;margin:auto;}
-    .contact-form input,.contact-form textarea{padding:.75rem;font-size:1rem;border:1px solid #ccc;border-radius:6px;}
-    .contact-form button{background:#d8b4a0;color:#fff;border:none;padding:.75rem;font-size:1rem;border-radius:6px;cursor:pointer;}
-    .status-msg{font-size:.9rem;color:#4b2e2e;text-align:center;}
-    footer{background:#d8b4a0;color:#fff;text-align:center;padding:1rem;margin-top:2rem;}
-
-   /* Events and Awards */
-   event-card {
-		background: #fff;
-		border-radius: 10px;
-		padding: 1.5rem;
-		margin-bottom: 2rem;
-		box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
-    }
-
-    .event-card h3 {
-		margin-top: 0;
-		color: #4b2e2e;
-    }
-
-    /* Remove the old flex layout and use grid */
-   .event-card .event-gallery {
-		display: grid;
-		grid-template-columns: repeat(4, 1fr); /* 6 images per row */
-		gap: 10px;
-		margin-top: 1rem;
-    }
-
-   .event-card .event-gallery a {
-		display: block;
-		width: 100%;
-		height: 500px;
-		overflow: hidden;
-		border-radius: 6px;
-    }
-
-    .event-card .event-gallery img {
-		width: 100%;
-		height: 100%;
-		object-fit: cover;
-    }
-	
-    .event-grid {
-		display: flex;
-		flex-direction: column;
-		gap: 2rem; /* ⬅ Adds space between each event card */
-    }
-
-       
-
-    /* Testimonial */    
-        
-    .testimonial-card {
-		  background: #fff;
-		  border-radius: 10px;
-		  padding: 1.5rem;
-		  margin-bottom: 2rem;
-		  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
-	  }
-
- 	  .testimonial-card h3 {
-		  margin-top: 0;
-		  color: #4b2e2e;
-	  }
-
-	  /* Remove the old flex layout and use grid */
-	  .testimonial-card .testimonial-gallery {
-		  display: grid;
-		  grid-template-columns: repeat(4, 1fr); /* 6 images per row */
-		  gap: 10px;
-		  margin-top: 1rem;
-	  }
-
-	  .testimonial-card .testimonial-gallery a {
-		  display: block;
-		  width: 100%;
-		  height: 500px;
-		  overflow: hidden;
-		  border-radius: 6px;
-	  }
-
-	  .testimonial-card .testimonial-gallery img {
-		  width: 100%;
-		  height: 100%;
-		  object-fit: cover;
-	  }
-	
-	  .testimonial-grid {
-		  display: flex;
-		  flex-direction: column;
-		  gap: 2rem; /* ⬅ Adds space between each event card */
-	  }
-    
-  </style>
+</style>
