@@ -23,11 +23,7 @@
     <h2 id="cat-title">Loading...</h2>
     <div id="history-container" class="gallery-grid"></div>
   </section>
-
-  <footer>
-    <p>&copy; 2025 Reebonz Cattery. All rights reserved.</p>
-  </footer>
-
+ 
   <script src="https://cdnjs.cloudflare.com/ajax/libs/lightbox2/2.11.4/js/lightbox-plus-jquery.min.js"></script>
   <script>
     const params = new URLSearchParams(window.location.search);
@@ -68,5 +64,51 @@
       .catch(error => console.error("Error fetching history data:", error));
   </script>
 
+  <footer class="footer">
+    <div class="footer-container">
+        
+        <!-- Contact Info -->
+        <div class="footer-section">
+            <h3>Contact Us</h3>
+            <p>Email: <a href="mailto:info@furrycatkittens.com">info@furrycatkittens.com</a></p>
+            <p>Phone: +63 912 345 6789</p>
+            <p>Address: Manila, Philippines</p>
+        </div>
+
+        <!-- Social Media Links -->
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">   
+        <div class="footer-section footer-social">
+            <h3>Follow Us</h3>
+            <a href="https://www.facebook.com/FurryCatKittens" target="_blank" alt="Facebook" >
+			    <i class="fab fa-facebook"></i> 
+	    </a>
+	    <a href="https://www.instagram.com/" target="_blank" alt=="Instagram">
+         		<i class="fab fa-instagram"></i>
+            </a>
+            <a href="https://www.youtube.com/" target="_blank" alt=Youtube">
+				<i class="fab fa-youtube"></i>
+            </a>	
+        </div>
+
+        <!-- Newsletter Signup -->
+        <div class="footer-section">
+            <h3>Newsletter</h3>
+            <p>Subscribe to get the latest updates and offers!</p>
+            <form>
+                <input type="email" placeholder="Your Email" required>
+                <button type="submit">Subscribe</button>
+            </form>
+        </div>
+    </div>
+
+    <hr>
+    <p class="footer-copy">
+        <img src="assets/icons/kitten.png" alt="Kitten Icon" class="kitten-icon"> 
+        &copy; 2025 Furry Cat Kittens. All Rights Reserved.
+    </p>
+</footer>	
+
+
 </body>
 </html>
+
