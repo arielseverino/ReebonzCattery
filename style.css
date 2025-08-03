@@ -547,10 +547,12 @@ footer {
   line-height: 1.4;
 }
 
-
-
-
+<p class="footer-copy">
+  <img src="assets/icons/kitten.png" alt="Kitten Icon" class="kitten-icon">
+  &copy; 2025 Furry Cat Kittens. All Rights Reserved.
+</p>
 
 
 </style>
+
 
