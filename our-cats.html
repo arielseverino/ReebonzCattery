@@ -4,14 +4,8 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Our Cats - Reebonz Cattery</title>
-
-  <!-- Google Fonts -->
   <link href="https://fonts.googleapis.com/css2?family=Playfair+Display&family=Open+Sans&display=swap" rel="stylesheet">
-
-  <!-- Lightbox CSS -->
   <link href="https://cdnjs.cloudflare.com/ajax/libs/lightbox2/2.11.4/css/lightbox.min.css" rel="stylesheet">
-
-  <!-- Styles -->
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
@@ -40,73 +34,35 @@
     <p>&copy; 2025 Reebonz Cattery. All rights reserved.</p>
   </footer>
 
-  <!-- Lightbox JS -->
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/lightbox2/2.11.4/js/lightbox-plus-jquery.min.js"></script>
-
-  <!-- Fetch Cats Data -->
   <script>
-    document.addEventListener("DOMContentLoaded", () => {
-      const catsApiUrl = "https://api.sheetbest.com/sheets/5831cb94-11ed-48b1-a76e-42d756531704/tabs/our-cats";
-      const historyApiUrl = "https://api.sheetbest.com/sheets/5831cb94-11ed-48b1-a76e-42d756531704/tabs/history";
-      const container = document.getElementById("cats-container");
+    const apiUrl = "https://api.sheetbest.com/sheets/5831cb94-11ed-48b1-a76e-42d756531704/tabs/our-cats";
+    const container = document.getElementById("cats-container");
 
-      fetch(catsApiUrl)
-        .then(response => response.json())
-        .then(cats => {
-          container.innerHTML = "";
-          cats.forEach(cat => {
-            const imgSrc = `assets/our-cats/${cat.Image}`;
-            const card = document.createElement("div");
-            card.classList.add("cat-card");
+    fetch(apiUrl)
+      .then(response => response.json())
+      .then(cats => {
+        container.innerHTML = "";
+        cats.forEach(cat => {
+          const imgSrc = `assets/our-cats/${cat.Image}`;
+          const card = document.createElement("div");
+          card.classList.add("cat-card");
 
-            card.innerHTML = `
-              <a href="${imgSrc}" data-lightbox="cats" data-title="${cat.Name}">
-                <img src="${imgSrc}" alt="${cat.Name}" 
-                     onerror="this.onerror=null; this.src='assets/images/no-image.jpg';">
-              </a>
-              <h3>${cat.Name}</h3>
-              <p><strong>Category:</strong> ${cat.Category}</p>
-              <p><strong>Type:</strong> ${cat.Type}</p>
-              <p><strong>DOB:</strong> ${cat.DateofBirth}</p>
-              <p><strong>Parents:</strong> ${cat.Parents}</p>
-              <p><strong>Sex:</strong> ${cat.Sex}</p>
-              <p>${cat.Remark}</p>
-            `;
-
-            card.querySelector("a").addEventListener("click", (event) => {
-              event.preventDefault();
-
-              fetch(historyApiUrl)
-                .then(response => response.json())
-                .then(history => {
-                  const catHistory = history.filter(h => h.Name === cat.Name);
-
-                  if (catHistory.length > 0) {
-                    lightbox.start($(card.querySelector("a"))); // open the first image
-
-                    // Add history images to Lightbox group
-                    catHistory.forEach(entry => {
-                      const wrapper = document.createElement("a");
-                      wrapper.href = `assets/history/${entry.Image}`;
-                      wrapper.setAttribute("data-lightbox", `history-gallery-${cat.Name}`);
-                      wrapper.setAttribute("data-title", `${entry.Date || ''} - ${entry.Remark || ''}`);
-
-                      // Append hidden links to body for Lightbox
-                      wrapper.style.display = "none";
-                      document.body.appendChild(wrapper);
-                    });
-                  }
-                });
-            });
-
-            container.appendChild(card);
-          });
-        })
-        .catch(error => {
-          console.error("Error fetching cat data:", error);
-          container.innerHTML = "<p>Failed to load cats. Please try again later.</p>";
+          card.innerHTML = `
+            <a href="cat-history.html?name=${encodeURIComponent(cat.Name)}">
+              <img src="${imgSrc}" alt="${cat.Name}" onerror="this.onerror=null; this.src='assets/images/no-image.jpg';">
+            </a>
+            <h3>${cat.Name}</h3>
+            <p><strong>Category:</strong> ${cat.Category}</p>
+            <p><strong>Type:</strong> ${cat.Type}</p>
+            <p><strong>DOB:</strong> ${cat.DateofBirth}</p>
+            <p><strong>Parents:</strong> ${cat.Parents}</p>
+            <p><strong>Sex:</strong> ${cat.Sex}</p>
+            <p>${cat.Remark}</p>
+          `;
+          container.appendChild(card);
         });
-    });
+      })
+      .catch(error => console.error("Error fetching cat data:", error));
   </script>
 
 </body>
